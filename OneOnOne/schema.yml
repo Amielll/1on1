@@ -1,0 +1,1265 @@
+openapi: 3.0.3
+info:
+  title: OneOnOne
+  version: 1.0.0
+  description: This is the project for CSC309 created by Arlene Shirui Wang (partially),
+    Wonjun Cho, Kirsten Felicia Sutantyo, and Amiel Nurja
+paths:
+  /accounts/api/login:
+    post:
+      operationId: accounts_api_login_create
+      description: |-
+        Takes a set of user credentials and returns an access and refresh JSON web
+        token pair to prove the authentication of those credentials.
+      tags:
+      - accounts
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TokenObtainPair'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TokenObtainPair'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TokenObtainPair'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenObtainPair'
+          description: ''
+  /accounts/api/login/refresh:
+    post:
+      operationId: accounts_api_login_refresh_create
+      description: |-
+        Takes a refresh type JSON web token and returns an access type JSON web
+        token if the refresh token is valid.
+      tags:
+      - accounts
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TokenRefresh'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TokenRefresh'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TokenRefresh'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenRefresh'
+          description: ''
+  /accounts/api/signup:
+    post:
+      operationId: accounts_api_signup_create
+      tags:
+      - accounts
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/User'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: ''
+  /api/schema/:
+    get:
+      operationId: api_schema_retrieve
+      description: |-
+        OpenApi3 schema for this API. Format can be selected via content negotiation.
+
+        - YAML: application/vnd.oai.openapi
+        - JSON: application/vnd.oai.openapi+json
+      parameters:
+      - in: query
+        name: format
+        schema:
+          type: string
+          enum:
+          - json
+          - yaml
+      - in: query
+        name: lang
+        schema:
+          type: string
+          enum:
+          - af
+          - ar
+          - ar-dz
+          - ast
+          - az
+          - be
+          - bg
+          - bn
+          - br
+          - bs
+          - ca
+          - ckb
+          - cs
+          - cy
+          - da
+          - de
+          - dsb
+          - el
+          - en
+          - en-au
+          - en-gb
+          - eo
+          - es
+          - es-ar
+          - es-co
+          - es-mx
+          - es-ni
+          - es-ve
+          - et
+          - eu
+          - fa
+          - fi
+          - fr
+          - fy
+          - ga
+          - gd
+          - gl
+          - he
+          - hi
+          - hr
+          - hsb
+          - hu
+          - hy
+          - ia
+          - id
+          - ig
+          - io
+          - is
+          - it
+          - ja
+          - ka
+          - kab
+          - kk
+          - km
+          - kn
+          - ko
+          - ky
+          - lb
+          - lt
+          - lv
+          - mk
+          - ml
+          - mn
+          - mr
+          - ms
+          - my
+          - nb
+          - ne
+          - nl
+          - nn
+          - os
+          - pa
+          - pl
+          - pt
+          - pt-br
+          - ro
+          - ru
+          - sk
+          - sl
+          - sq
+          - sr
+          - sr-latn
+          - sv
+          - sw
+          - ta
+          - te
+          - tg
+          - th
+          - tk
+          - tr
+          - tt
+          - udm
+          - uk
+          - ur
+          - uz
+          - vi
+          - zh-hans
+          - zh-hant
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/vnd.oai.openapi:
+              schema:
+                type: object
+                additionalProperties: {}
+            application/yaml:
+              schema:
+                type: object
+                additionalProperties: {}
+            application/vnd.oai.openapi+json:
+              schema:
+                type: object
+                additionalProperties: {}
+            application/json:
+              schema:
+                type: object
+                additionalProperties: {}
+          description: ''
+  /calendars/:
+    get:
+      operationId: calendars_list
+      description: Retrieve a list of calendars owned by the current user.
+      tags:
+      - calendars
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Calendar'
+          description: ''
+    post:
+      operationId: calendars_create
+      description: Create a new calendar.
+      tags:
+      - calendars
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Calendar'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Calendar'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Calendar'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Calendar'
+          description: ''
+  /calendars/{calendar_pk}/events/:
+    get:
+      operationId: calendars_events_list
+      description: Retrieve a list of events for the specified calendar.
+      parameters:
+      - in: path
+        name: calendar_pk
+        schema:
+          type: integer
+        required: true
+      tags:
+      - calendars
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Event'
+          description: ''
+    post:
+      operationId: calendars_events_create
+      description: Create a new event for the specified calendar.
+      parameters:
+      - in: path
+        name: calendar_pk
+        schema:
+          type: string
+          pattern: ^\d+$
+        required: true
+      tags:
+      - calendars
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Event'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Event'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Event'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Event'
+          description: ''
+  /calendars/{calendar_pk}/events/{id}/:
+    get:
+      operationId: calendars_events_retrieve
+      description: Retrieve details of a specific event.
+      parameters:
+      - in: path
+        name: calendar_pk
+        schema:
+          type: string
+          pattern: ^\d+$
+        required: true
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - calendars
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Event'
+          description: ''
+    put:
+      operationId: calendars_events_update
+      description: Update details of a specific event.
+      parameters:
+      - in: path
+        name: calendar_pk
+        schema:
+          type: string
+          pattern: ^\d+$
+        required: true
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - calendars
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Event'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Event'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Event'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Event'
+          description: ''
+    patch:
+      operationId: calendars_events_partial_update
+      description: Partially update details of a specific event.
+      parameters:
+      - in: path
+        name: calendar_pk
+        schema:
+          type: string
+          pattern: ^\d+$
+        required: true
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - calendars
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedEvent'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedEvent'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedEvent'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Event'
+          description: ''
+    delete:
+      operationId: calendars_events_destroy
+      description: Delete a specific event.
+      parameters:
+      - in: path
+        name: calendar_pk
+        schema:
+          type: string
+          pattern: ^\d+$
+        required: true
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - calendars
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /calendars/{calendar_pk}/invitees/:
+    get:
+      operationId: calendars_invitees_list
+      description: Retrieve a list of invitees for the specified calendar.
+      parameters:
+      - in: path
+        name: calendar_pk
+        schema:
+          type: integer
+        required: true
+      tags:
+      - calendars
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Invitee'
+          description: ''
+    post:
+      operationId: calendars_invitees_create
+      description: Create a new invitee for the specified calendar.
+      parameters:
+      - in: path
+        name: calendar_pk
+        schema:
+          type: string
+          pattern: ^\d+$
+        required: true
+      tags:
+      - calendars
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Invitee'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Invitee'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Invitee'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Invitee'
+          description: ''
+  /calendars/{calendar_pk}/invitees/{id}/:
+    get:
+      operationId: calendars_invitees_retrieve
+      description: Retrieve details of a specific invitee.
+      parameters:
+      - in: path
+        name: calendar_pk
+        schema:
+          type: string
+          pattern: ^\d+$
+        required: true
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - calendars
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Invitee'
+          description: ''
+    delete:
+      operationId: calendars_invitees_destroy
+      description: Delete a specific invitee.
+      parameters:
+      - in: path
+        name: calendar_pk
+        schema:
+          type: string
+          pattern: ^\d+$
+        required: true
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - calendars
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /calendars/{calendar_pk}/preferences/:
+    get:
+      operationId: calendars_preferences_list
+      description: Retrieve a list of preferences for the specified calendar.
+      parameters:
+      - in: path
+        name: calendar_pk
+        schema:
+          type: integer
+        required: true
+      tags:
+      - calendars
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Preference'
+          description: ''
+    post:
+      operationId: calendars_preferences_create
+      description: Create a new preference for the specified calendar.
+      parameters:
+      - in: path
+        name: calendar_pk
+        schema:
+          type: string
+          pattern: ^\d+$
+        required: true
+      tags:
+      - calendars
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Preference'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Preference'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Preference'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Preference'
+          description: ''
+  /calendars/{calendar_pk}/preferences/{id}/:
+    get:
+      operationId: calendars_preferences_retrieve
+      description: Retrieve details of a specific preference.
+      parameters:
+      - in: path
+        name: calendar_pk
+        schema:
+          type: integer
+        required: true
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - calendars
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Preference'
+          description: ''
+    put:
+      operationId: calendars_preferences_update
+      description: Update details of a specific preference.
+      parameters:
+      - in: path
+        name: calendar_pk
+        schema:
+          type: integer
+        required: true
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - calendars
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PreferenceUpdate'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PreferenceUpdate'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PreferenceUpdate'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Preference'
+          description: ''
+    patch:
+      operationId: calendars_preferences_partial_update
+      description: Partially update details of a specific preference.
+      parameters:
+      - in: path
+        name: calendar_pk
+        schema:
+          type: integer
+        required: true
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - calendars
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedPreferenceUpdate'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedPreferenceUpdate'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedPreferenceUpdate'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Preference'
+          description: ''
+    delete:
+      operationId: calendars_preferences_destroy
+      description: Delete a specific preference.
+      parameters:
+      - in: path
+        name: calendar_pk
+        schema:
+          type: integer
+        required: true
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - calendars
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /calendars/{id}/:
+    get:
+      operationId: calendars_retrieve
+      description: Retrieve details of a specific calendar.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - calendars
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Calendar'
+          description: ''
+    put:
+      operationId: calendars_update
+      description: Update details of a specific calendar.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - calendars
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Calendar'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Calendar'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Calendar'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Calendar'
+          description: ''
+    patch:
+      operationId: calendars_partial_update
+      description: Partially update details of a specific calendar.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - calendars
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedCalendar'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedCalendar'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedCalendar'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Calendar'
+          description: ''
+    delete:
+      operationId: calendars_destroy
+      description: Delete a specific calendar.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - calendars
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /contacts/:
+    get:
+      operationId: contacts_list
+      description: Retrieve a list of contacts owned by the current user.
+      tags:
+      - contacts
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Contact'
+          description: ''
+    post:
+      operationId: contacts_create
+      description: Create a new contact.
+      tags:
+      - contacts
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Contact'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Contact'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Contact'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Contact'
+          description: ''
+  /contacts/{id}/:
+    get:
+      operationId: contacts_retrieve
+      description: Retrieve details of a specific contact.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - contacts
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Contact'
+          description: ''
+    put:
+      operationId: contacts_update
+      description: Update details of a specific contact.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - contacts
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Contact'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Contact'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Contact'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Contact'
+          description: ''
+    patch:
+      operationId: contacts_partial_update
+      description: Partially update details of a specific contact.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - contacts
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedContact'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedContact'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedContact'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Contact'
+          description: ''
+    delete:
+      operationId: contacts_destroy
+      description: Delete a specific contact.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - contacts
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+components:
+  schemas:
+    Calendar:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+        description:
+          type: string
+        owner:
+          type: integer
+          readOnly: true
+        start_date:
+          type: string
+          format: date
+        end_date:
+          type: string
+          format: date
+        finalized:
+          type: boolean
+          default: false
+        duration:
+          type: integer
+        deadline:
+          type: string
+          format: date-time
+      required:
+      - deadline
+      - description
+      - duration
+      - end_date
+      - id
+      - name
+      - owner
+      - start_date
+    Contact:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+        email:
+          type: string
+          format: email
+        owner:
+          type: integer
+          readOnly: true
+      required:
+      - email
+      - id
+      - name
+      - owner
+    Event:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+        description:
+          type: string
+        calendar:
+          type: integer
+          readOnly: true
+        date:
+          type: string
+          format: date
+        start_time:
+          type: string
+          format: time
+        last_modified:
+          type: string
+          format: date-time
+        attendee:
+          type: integer
+      required:
+      - attendee
+      - calendar
+      - date
+      - description
+      - id
+      - last_modified
+      - name
+      - start_time
+    Invitee:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        calendar:
+          type: integer
+          readOnly: true
+        contact:
+          type: integer
+      required:
+      - calendar
+      - contact
+      - id
+    PatchedCalendar:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+        description:
+          type: string
+        owner:
+          type: integer
+          readOnly: true
+        start_date:
+          type: string
+          format: date
+        end_date:
+          type: string
+          format: date
+        finalized:
+          type: boolean
+          default: false
+        duration:
+          type: integer
+        deadline:
+          type: string
+          format: date-time
+    PatchedContact:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+        email:
+          type: string
+          format: email
+        owner:
+          type: integer
+          readOnly: true
+    PatchedEvent:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+        description:
+          type: string
+        calendar:
+          type: integer
+          readOnly: true
+        date:
+          type: string
+          format: date
+        start_time:
+          type: string
+          format: time
+        last_modified:
+          type: string
+          format: date-time
+        attendee:
+          type: integer
+    PatchedPreferenceUpdate:
+      type: object
+      properties:
+        calendar:
+          type: integer
+          readOnly: true
+        level:
+          type: integer
+        start:
+          type: string
+          format: date-time
+        invitee:
+          type: integer
+          readOnly: true
+    Preference:
+      type: object
+      properties:
+        calendar:
+          type: integer
+          readOnly: true
+        level:
+          type: integer
+        start:
+          type: string
+          format: date-time
+        invitee:
+          type: integer
+      required:
+      - calendar
+      - invitee
+      - level
+      - start
+    PreferenceUpdate:
+      type: object
+      properties:
+        calendar:
+          type: integer
+          readOnly: true
+        level:
+          type: integer
+        start:
+          type: string
+          format: date-time
+        invitee:
+          type: integer
+          readOnly: true
+      required:
+      - calendar
+      - invitee
+      - level
+      - start
+    TokenObtainPair:
+      type: object
+      properties:
+        username:
+          type: string
+          writeOnly: true
+        password:
+          type: string
+          writeOnly: true
+        access:
+          type: string
+          readOnly: true
+        refresh:
+          type: string
+          readOnly: true
+      required:
+      - access
+      - password
+      - refresh
+      - username
+    TokenRefresh:
+      type: object
+      properties:
+        access:
+          type: string
+          readOnly: true
+        refresh:
+          type: string
+          writeOnly: true
+      required:
+      - access
+      - refresh
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        email:
+          type: string
+        username:
+          type: string
+          description: Required. 150 characters or fewer. Letters, digits and @/./+/-/_
+            only.
+          pattern: ^[\w.@+-]+$
+          maxLength: 150
+        password:
+          type: string
+          writeOnly: true
+        first_name:
+          type: string
+        last_name:
+          type: string
+      required:
+      - email
+      - first_name
+      - id
+      - last_name
+      - password
+      - username
+  securitySchemes:
+    jwtAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

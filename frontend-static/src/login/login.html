@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../output.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+</head>
+
+<body class="bg-shadow">
+  <div class="flex h-full items-center min-h-[550px] sm:h-dvh justify-center p-2">
+    <div
+      class="flex flex-col md:flex-row w-full h-full md:max-h-[500px] lg:max-w-[1024px] bg-white rounded-lg drop-shadow-md">
+      <div
+        class="h-min md:h-full md:w-1/2 md:flex md:justify-center rounded-tl-lg rounded-tr-lg md:rounded-tr-none md:rounded-bl-lg bg-pale-green p-10">
+        <img src="../assets/1on1.png" alt="1on1" class="mx-auto md:self-center">
+      </div>
+      <div class="py-4 px-8 md:py-14 md:w-1/2">
+        <p class="font-bold text-3xl">Welcome Back!</p>
+        <p class="text-base">Enter your account information to get started.</p>
+
+        <form class="mt-6">
+          <div class="mb-4">
+            <label for="email">
+              <p class="font-bold">Email<span class="text-red-600">*</span></p>
+            </label>
+            <div class="relative rounded-md shadow-sm">
+              <input type="email" name="email" id="email"
+                class="block w-full rounded-lg border-0 py-1.5 pl-4 pr-20 ring-2 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-dark-green text-sm leading-6"
+                placeholder="Enter your email address">
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="password">
+              <p class="font-bold">Password<span class="text-red-600">*</span></p>
+            </label>
+            <input type="password" name="password" id="password"
+              class="block w-full rounded-lg border-0 py-1.5 pl-4 pr-20 ring-2 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-dark-green text-sm leading-6"
+              placeholder="Enter your password">
+          </div>
+          <div class="flex items-center justify-between">
+            <div>
+              <input type="checkbox" class="text-dark-green focus:ring-0 focus:ring-transparent rounded">
+              <label for="remember" class="ml-1">Remember Me</label>
+            </div>
+            <div class="hover:cursor-pointer">
+              <p class="text-dark-green">Forgot password?</p>
+            </div>
+          </div>
+          <div class="mt-6">
+            <a href="../index.html"><button type="button" class="bg-dark-green text-white w-full p-1 rounded-lg">Log
+                In</button></a>
+          </div>
+        </form>
+        <div class="h-px rounded bg-gray-300 mt-3"></div>
+        <div class="text-center mt-2">
+          <p>Don't have an account? <a href="../signup/signup.html"><span
+                class="text-dark-green underline font-bold hover:cursor-pointer">Sign Up</span></a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

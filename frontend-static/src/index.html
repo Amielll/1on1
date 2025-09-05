@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="output.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home</title>
+</head>
+
+<body class="bg-shadow">
+  <nav class="flex flex-wrap items-center justify-between md:justify-normal md:gap-4 bg-pale-green md:bg-white">
+    <img src="assets/1on1.png" alt="1on1" class="md:self-center bg-pale-green p-4 w-44 h-auto" />
+    <button type="button" id="toggleButton"
+      class="flex-end inline-flex items-center justify-center p-2 w-10 h-10 mr-4 text-sm rounded-lg md:hidden focus:outline-none focus:ring-2 focus:ring-dark-green hover:bg-shadow">
+      <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 6H20M4 12H20M4 18H20" stroke="#042A2B" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round" />
+      </svg>
+    </button>
+
+    <div class="hidden w-full md:block md:w-auto mx-4 md:mx-0 md:flex justify-between" id="menu">
+      <ul
+        class="font-medium text-lg flex flex-col p-4 md:p-0 mt-4 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:bg-white bg-pale-green">
+        <li>
+          <a href="#"
+            class="block p-4 rounded-xl md:bg-transparent md:text-dark-green bg-light-green md:font-bold md:underline">Home</a>
+        </li>
+        <li>
+          <a href="calendar-specific/calendar-specific.html"
+            class="block p-4 rounded-xl md:bg-transparent hover:bg-green md:hover:text-black hover:no-underline md:hover:underline md:hover:bg-transparent md:hover:font-bold hover:text-white">Calendars</a>
+        </li>
+        <li>
+          <a href="contacts/contacts.html"
+            class="block p-4 rounded-xl md:bg-transparent hover:bg-green md:hover:text-black hover:no-underline md:hover:underline md:hover:bg-transparent md:hover:font-bold hover:text-white">Contacts</a>
+        </li>
+        <li>
+          <a href="login/login.html"
+            class="block p-4 rounded-xl md:bg-transparent hover:bg-green md:hover:text-black hover:no-underline md:hover:underline md:hover:bg-transparent md:hover:font-bold hover:text-white">Sign
+            out</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <section class="mx-4 mt-8">
+      <h1 class="font-bold text-2xl">Welcome back exampleuser!</h1>
+    </section>
+
+    <section class="mx-4 mt-8">
+      <h2 class="font-bold text-xl">Upcoming Meetings</h2>
+      <div class="flex-col flex-wrap justify-between h-full">
+        <div class="flex gap-4 flex-wrap">
+          <div class="flex flex-col drop-shadow-md bg-white p-4 rounded-md">
+            <span class="font-semibold text-lg">P1 Meeting</span>
+
+            <span class="text-sm font-light"> CSC309H1 2023-24 </span>
+
+            <div class="flex gap-2 mt-2 items-center">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M3 9H21M7 3V5M17 3V5M6 12H8M11 12H13M16 12H18M6 15H8M11 15H13M16 15H18M6 18H8M11 18H13M16 18H18M6.2 21H17.8C18.9201 21 19.4802 21 19.908 20.782C20.2843 20.5903 20.5903 20.2843 20.782 19.908C21 19.4802 21 18.9201 21 17.8V8.2C21 7.07989 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V17.8C3 18.9201 3 19.4802 3.21799 19.908C3.40973 20.2843 3.71569 20.5903 4.09202 20.782C4.51984 21 5.07989 21 6.2 21Z"
+                  stroke="#000000" stroke-width="2" stroke-linecap="round" />
+              </svg>
+              Feb 16, 2024
+            </div>
+
+            <div class="flex gap-2 mt-2 items-center">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M12 7V12L14.5 10.5M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
+                  stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              4:15PM - 4:30PM
+            </div>
+
+            <div class="flex gap-2 mt-2 items-center">
+              <svg fill="#000000" class="w-5 h-5" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M16 15.503A5.041 5.041 0 1 0 16 5.42a5.041 5.041 0 0 0 0 10.083zm0 2.215c-6.703 0-11 3.699-11 5.5v3.363h22v-3.363c0-2.178-4.068-5.5-11-5.5z" />
+              </svg>
+              Amiel Nurja
+            </div>
+
+            <a href="#" class="mt-2 underline text-dark-green"> Details </a>
+          </div>
+
+
+          <div class="flex flex-col drop-shadow-md bg-white p-4 rounded-md">
+            <span class="font-semibold text-lg">P1 Meeting</span>
+
+            <span class="text-sm font-light"> CSC309H1 2023-24 </span>
+
+            <div class="flex gap-2 mt-2 items-center">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M3 9H21M7 3V5M17 3V5M6 12H8M11 12H13M16 12H18M6 15H8M11 15H13M16 15H18M6 18H8M11 18H13M16 18H18M6.2 21H17.8C18.9201 21 19.4802 21 19.908 20.782C20.2843 20.5903 20.5903 20.2843 20.782 19.908C21 19.4802 21 18.9201 21 17.8V8.2C21 7.07989 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V17.8C3 18.9201 3 19.4802 3.21799 19.908C3.40973 20.2843 3.71569 20.5903 4.09202 20.782C4.51984 21 5.07989 21 6.2 21Z"
+                  stroke="#000000" stroke-width="2" stroke-linecap="round" />
+              </svg>
+              Feb 16, 2024
+            </div>
+
+            <div class="flex gap-2 mt-2 items-center">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M12 7V12L14.5 10.5M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
+                  stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              4:30PM - 4:45PM
+            </div>
+
+            <div class="flex gap-2 mt-2 items-center">
+              <svg fill="#000000" class="w-5 h-5" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M16 15.503A5.041 5.041 0 1 0 16 5.42a5.041 5.041 0 0 0 0 10.083zm0 2.215c-6.703 0-11 3.699-11 5.5v3.363h22v-3.363c0-2.178-4.068-5.5-11-5.5z" />
+              </svg>
+              Kirsten Sutantyo
+            </div>
+
+            <a href="#" class="mt-2 underline text-dark-green"> Details </a>
+          </div>
+
+          <div class="flex flex-col drop-shadow-md bg-white p-4 rounded-md">
+            <span class="font-semibold text-lg">P1 Meeting</span>
+
+            <span class="text-sm font-light"> CSC309H1 2023-24 </span>
+
+            <div class="flex gap-2 mt-2 items-center">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M3 9H21M7 3V5M17 3V5M6 12H8M11 12H13M16 12H18M6 15H8M11 15H13M16 15H18M6 18H8M11 18H13M16 18H18M6.2 21H17.8C18.9201 21 19.4802 21 19.908 20.782C20.2843 20.5903 20.5903 20.2843 20.782 19.908C21 19.4802 21 18.9201 21 17.8V8.2C21 7.07989 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V17.8C3 18.9201 3 19.4802 3.21799 19.908C3.40973 20.2843 3.71569 20.5903 4.09202 20.782C4.51984 21 5.07989 21 6.2 21Z"
+                  stroke="#000000" stroke-width="2" stroke-linecap="round" />
+              </svg>
+              Feb 16, 2024
+            </div>
+
+            <div class="flex gap-2 mt-2 items-center">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M12 7V12L14.5 10.5M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
+                  stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              4:15PM - 4:30PM
+            </div>
+
+            <div class="flex gap-2 mt-2 items-center">
+              <svg fill="#000000" class="w-5 h-5" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M16 15.503A5.041 5.041 0 1 0 16 5.42a5.041 5.041 0 0 0 0 10.083zm0 2.215c-6.703 0-11 3.699-11 5.5v3.363h22v-3.363c0-2.178-4.068-5.5-11-5.5z" />
+              </svg>
+              Brian W. Cho
+            </div>
+
+            <a href="#" class="mt-2 underline text-dark-green"> Details </a>
+          </div>
+
+          <div class="flex flex-col drop-shadow-md bg-white p-4 rounded-md">
+            <span class="font-semibold text-lg">A1 Meeting</span>
+
+            <span class="text-sm font-light"> CSC309H1 2023-24 </span>
+
+            <div class="flex gap-2 mt-2 items-center">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M3 9H21M7 3V5M17 3V5M6 12H8M11 12H13M16 12H18M6 15H8M11 15H13M16 15H18M6 18H8M11 18H13M16 18H18M6.2 21H17.8C18.9201 21 19.4802 21 19.908 20.782C20.2843 20.5903 20.5903 20.2843 20.782 19.908C21 19.4802 21 18.9201 21 17.8V8.2C21 7.07989 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V17.8C3 18.9201 3 19.4802 3.21799 19.908C3.40973 20.2843 3.71569 20.5903 4.09202 20.782C4.51984 21 5.07989 21 6.2 21Z"
+                  stroke="#000000" stroke-width="2" stroke-linecap="round" />
+              </svg>
+              Feb 20, 2024
+            </div>
+
+            <div class="flex gap-2 mt-2 items-center">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M12 7V12L14.5 10.5M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
+                  stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              11:00AM - 11:30AM
+            </div>
+
+            <div class="flex gap-2 mt-2 items-center">
+              <svg fill="#000000" class="w-5 h-5" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M16 15.503A5.041 5.041 0 1 0 16 5.42a5.041 5.041 0 0 0 0 10.083zm0 2.215c-6.703 0-11 3.699-11 5.5v3.363h22v-3.363c0-2.178-4.068-5.5-11-5.5z" />
+              </svg>
+              Kirsten Sutantyo
+            </div>
+
+            <a href="#" class="mt-2 underline text-dark-green"> Details </a>
+          </div>
+
+          <div class="flex flex-col drop-shadow-md bg-white p-4 rounded-md">
+            <span class="font-semibold text-lg">Week 4 Office Hours</span>
+
+            <span class="text-sm font-light"> CSC309H1 2023-24 </span>
+
+            <div class="flex gap-2 mt-2 items-center">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M3 9H21M7 3V5M17 3V5M6 12H8M11 12H13M16 12H18M6 15H8M11 15H13M16 15H18M6 18H8M11 18H13M16 18H18M6.2 21H17.8C18.9201 21 19.4802 21 19.908 20.782C20.2843 20.5903 20.5903 20.2843 20.782 19.908C21 19.4802 21 18.9201 21 17.8V8.2C21 7.07989 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V17.8C3 18.9201 3 19.4802 3.21799 19.908C3.40973 20.2843 3.71569 20.5903 4.09202 20.782C4.51984 21 5.07989 21 6.2 21Z"
+                  stroke="#000000" stroke-width="2" stroke-linecap="round" />
+              </svg>
+              Feb 26, 2024
+            </div>
+
+            <div class="flex gap-2 mt-2 items-center">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M12 7V12L14.5 10.5M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
+                  stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              2:00PM - 2:15PM
+            </div>
+
+            <div class="flex gap-2 mt-2 items-center">
+              <svg fill="#000000" class="w-5 h-5" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M16 15.503A5.041 5.041 0 1 0 16 5.42a5.041 5.041 0 0 0 0 10.083zm0 2.215c-6.703 0-11 3.699-11 5.5v3.363h22v-3.363c0-2.178-4.068-5.5-11-5.5z" />
+              </svg>
+              Amiel Nurja
+            </div>
+
+            <a href="#" class="mt-2 underline text-dark-green"> Details </a>
+          </div>
+        </div>
+
+        <div class="my-8 flex gap-4 flex-wrap">
+          <div class="flex flex-col drop-shadow-md bg-white p-4 rounded-md">
+            <span class="font-semibold text-lg">Week 3 Office Hours</span>
+
+            <span class="text-sm font-light"> CSC300H1 2023-24 </span>
+
+            <div class="flex gap-2 mt-2 items-center">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M3 9H21M7 3V5M17 3V5M6 12H8M11 12H13M16 12H18M6 15H8M11 15H13M16 15H18M6 18H8M11 18H13M16 18H18M6.2 21H17.8C18.9201 21 19.4802 21 19.908 20.782C20.2843 20.5903 20.5903 20.2843 20.782 19.908C21 19.4802 21 18.9201 21 17.8V8.2C21 7.07989 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V17.8C3 18.9201 3 19.4802 3.21799 19.908C3.40973 20.2843 3.71569 20.5903 4.09202 20.782C4.51984 21 5.07989 21 6.2 21Z"
+                  stroke="#000000" stroke-width="2" stroke-linecap="round" />
+              </svg>
+              Feb 21, 2024
+            </div>
+
+            <div class="flex gap-2 mt-2 items-center">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M12 7V12L14.5 10.5M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
+                  stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              3:00PM - 3:30PM
+            </div>
+
+            <div class="flex gap-2 mt-2 items-center">
+              <svg fill="#000000" class="w-5 h-5" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M16 15.503A5.041 5.041 0 1 0 16 5.42a5.041 5.041 0 0 0 0 10.083zm0 2.215c-6.703 0-11 3.699-11 5.5v3.363h22v-3.363c0-2.178-4.068-5.5-11-5.5z" />
+              </svg>
+              Arlene Wang
+            </div>
+
+            <a href="#" class="mt-2 underline text-dark-green"> Details </a>
+          </div>
+
+          <div class="flex flex-col drop-shadow-md bg-white p-4 rounded-md">
+            <span class="font-semibold text-lg">Week 3 Office Hours</span>
+
+            <span class="text-sm font-light">CSC300H1 2023-24 </span>
+
+            <div class="flex gap-2 mt-2 items-center">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M3 9H21M7 3V5M17 3V5M6 12H8M11 12H13M16 12H18M6 15H8M11 15H13M16 15H18M6 18H8M11 18H13M16 18H18M6.2 21H17.8C18.9201 21 19.4802 21 19.908 20.782C20.2843 20.5903 20.5903 20.2843 20.782 19.908C21 19.4802 21 18.9201 21 17.8V8.2C21 7.07989 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V17.8C3 18.9201 3 19.4802 3.21799 19.908C3.40973 20.2843 3.71569 20.5903 4.09202 20.782C4.51984 21 5.07989 21 6.2 21Z"
+                  stroke="#000000" stroke-width="2" stroke-linecap="round" />
+              </svg>
+              Feb 21, 2024
+            </div>
+
+            <div class="flex gap-2 mt-2 items-center">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M12 7V12L14.5 10.5M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
+                  stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              3:30PM - 4:00PM
+            </div>
+
+            <div class="flex gap-2 mt-2 items-center">
+              <svg fill="#000000" class="w-5 h-5" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M16 15.503A5.041 5.041 0 1 0 16 5.42a5.041 5.041 0 0 0 0 10.083zm0 2.215c-6.703 0-11 3.699-11 5.5v3.363h22v-3.363c0-2.178-4.068-5.5-11-5.5z" />
+              </svg>
+              Brian W. Cho
+            </div>
+
+            <a href="#" class="mt-2 underline text-dark-green"> Details </a>
+          </div>
+
+        </div>
+
+
+        <div class="my-8 flex gap-4 flex-wrap">
+          <div class="flex flex-col drop-shadow-md bg-white p-4 rounded-md">
+            <span class="font-semibold text-lg">Research Discussion</span>
+
+            <span class="text-sm font-light"> CSC318H1 2023-24 </span>
+
+            <div class="flex gap-2 mt-2 items-center">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M3 9H21M7 3V5M17 3V5M6 12H8M11 12H13M16 12H18M6 15H8M11 15H13M16 15H18M6 18H8M11 18H13M16 18H18M6.2 21H17.8C18.9201 21 19.4802 21 19.908 20.782C20.2843 20.5903 20.5903 20.2843 20.782 19.908C21 19.4802 21 18.9201 21 17.8V8.2C21 7.07989 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V17.8C3 18.9201 3 19.4802 3.21799 19.908C3.40973 20.2843 3.71569 20.5903 4.09202 20.782C4.51984 21 5.07989 21 6.2 21Z"
+                  stroke="#000000" stroke-width="2" stroke-linecap="round" />
+              </svg>
+              Mar 1, 2024
+            </div>
+
+            <div class="flex gap-2 mt-2 items-center">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M12 7V12L14.5 10.5M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
+                  stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              12:00PM - 1:00PM
+            </div>
+
+            <div class="flex gap-2 mt-2 items-center">
+              <svg fill="#000000" class="w-5 h-5" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M16 15.503A5.041 5.041 0 1 0 16 5.42a5.041 5.041 0 0 0 0 10.083zm0 2.215c-6.703 0-11 3.699-11 5.5v3.363h22v-3.363c0-2.178-4.068-5.5-11-5.5z" />
+              </svg>
+              Arlene Wang
+            </div>
+
+            <a href="#" class="mt-2 underline text-dark-green"> Details </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="my-8 mx-4">
+      <h2 class="font-bold text-xl">Pending Finalization</h2>
+
+      <div class="flex gap-4 flex-wrap">
+        <div class="flex flex-col drop-shadow-md bg-white p-4 rounded-md">
+          <span class="font-semibold text-lg">A2 Meeting</span>
+          <span class="text-sm font-light">CSC309H1 2023-24</span>
+
+          <div class="flex gap-2 mt-2 items-center">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M3 9H21M7 3V5M17 3V5M6 12H8M11 12H13M16 12H18M6 15H8M11 15H13M16 15H18M6 18H8M11 18H13M16 18H18M6.2 21H17.8C18.9201 21 19.4802 21 19.908 20.782C20.2843 20.5903 20.5903 20.2843 20.782 19.908C21 19.4802 21 18.9201 21 17.8V8.2C21 7.07989 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V17.8C3 18.9201 3 19.4802 3.21799 19.908C3.40973 20.2843 3.71569 20.5903 4.09202 20.782C4.51984 21 5.07989 21 6.2 21Z"
+                stroke="#000000" stroke-width="2" stroke-linecap="round" />
+            </svg>
+            Feb 26 - Mar 6, 2024
+          </div>
+
+          <a href="#" class="mt-2 underline text-dark-green"> Details </a>
+        </div>
+
+        <div class="flex gap-4 flex-wrap">
+          <div class="flex flex-col drop-shadow-md bg-white p-4 rounded-md">
+            <span class="font-semibold text-lg">P2 Meeting</span>
+            <span class="text-sm font-light">CSC309H1 2023-24</span>
+
+            <div class="flex gap-2 mt-2 items-center">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M3 9H21M7 3V5M17 3V5M6 12H8M11 12H13M16 12H18M6 15H8M11 15H13M16 15H18M6 18H8M11 18H13M16 18H18M6.2 21H17.8C18.9201 21 19.4802 21 19.908 20.782C20.2843 20.5903 20.5903 20.2843 20.782 19.908C21 19.4802 21 18.9201 21 17.8V8.2C21 7.07989 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V17.8C3 18.9201 3 19.4802 3.21799 19.908C3.40973 20.2843 3.71569 20.5903 4.09202 20.782C4.51984 21 5.07989 21 6.2 21Z"
+                  stroke="#000000" stroke-width="2" stroke-linecap="round" />
+              </svg>
+              Mar 6 - Mar 20, 2024
+            </div>
+
+            <a href="#" class="mt-2 underline text-dark-green"> Details </a>
+          </div>
+    </section>
+  </main>
+
+  <script>
+    const toggleButton = document.getElementById("toggleButton");
+    const menu = document.getElementById("menu");
+    const signout = document.getElementById("signout");
+    toggleButton.addEventListener("click", () => {
+      menu.classList.toggle("hidden");
+      signout.classList.toggle("hidden");
+    });
+  </script>
+</body>
+
+</html>

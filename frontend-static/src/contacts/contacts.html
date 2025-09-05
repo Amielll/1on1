@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="../output.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contacts</title>
+</head>
+
+<body class="bg-shadow">
+  <nav class="flex flex-wrap items-center justify-between md:justify-normal md:gap-4 bg-pale-green md:bg-white">
+    <img src="../assets/1on1.png" alt="1on1" class="md:self-center bg-pale-green p-4 w-44 h-auto" />
+
+    <button type="button" id="toggleButton"
+      class="flex-end inline-flex items-center justify-center p-2 w-10 h-10 mr-4 text-sm rounded-lg md:hidden focus:outline-none focus:ring-2 focus:ring-dark-green hover:bg-shadow">
+      <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M1 1h15M1 7h15M1 13h15" />
+      </svg>
+    </button>
+
+    <div class="hidden w-full md:block md:w-auto mx-4 md:mx-0" id="menu">
+      <ul
+        class="font-medium text-lg flex flex-col p-4 md:p-0 mt-4 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:bg-white bg-pale-green">
+        <li>
+          <a href="../index.html"
+            class="block p-4 rounded-xl md:bg-transparent md:text-dark-green bg-light-green md:font-bold md:underline">Home</a>
+        </li>
+        <li>
+          <a href="../calendar-specific/calendar-specific.html"
+            class="block p-4 rounded-xl md:bg-transparent hover:bg-green md:hover:text-black hover:no-underline md:hover:underline md:hover:bg-transparent md:hover:font-bold hover:text-white">Calendars</a>
+        </li>
+        <li>
+          <a href="../contacts/contacts.html"
+            class="block p-4 rounded-xl md:bg-transparent hover:bg-green md:hover:text-black hover:no-underline md:hover:underline md:hover:bg-transparent md:hover:font-bold hover:text-white">Contacts</a>
+        </li>
+        <li>
+          <a href="../login/login.html"
+            class="block p-4 rounded-xl md:bg-transparent hover:bg-green md:hover:text-black hover:no-underline md:hover:underline md:hover:bg-transparent md:hover:font-bold hover:text-white">Sign
+            out</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="flex h-full items-center min-h-[650px] sm:h-dvh justify-center p-2">
+    <!--  card -->
+    <div
+      class="flex flex-col md:flex-row w-full h-full md:max-h-[600px] lg:max-w-[1024px] bg-white rounded-lg drop-shadow-md">
+      <!-- contacts menu -->
+      <div
+        class="h-min md:h-full md:w-1/3 md:flex md:justify-center rounded-tl-lg rounded-tr-lg md:rounded-tr-none md:rounded-bl-lg bg-pale-green">
+        <div class="w-full">
+          <input placeholder="Search for a contact..." class="rounded-lg border-0 bg-gray-200 p-2 px-3 m-4">
+
+          </input>
+          <a href="./add-contact.html"><button class="rounded-lg border-0 font-semibold bg-white p-2 px-4 mb-4 mx-4">+
+              Add a contact</button></a>
+          <!-- note alphabetized contacts -->
+          <div class="border-b-2 py-2 border-gray-500">
+            <p class="block font-medium text-xl px-4">Amiel Nurja</p>
+          </div>
+          <div class="border-b-2 py-2 border-gray-500 bg-light-green">
+            <p class="block font-bold text-xl px-4">Arlene Wang</p>
+          </div>
+          <div class="border-b-2 py-2 border-gray-500">
+            <p class="block font-medium text-xl px-4">Brian Cho</p>
+          </div>
+          <div class="border-b-2 py-2 border-gray-500">
+            <p class="block font-medium text-xl px-4">Kirsten Sutantyo</p>
+          </div>
+
+        </div>
+      </div>
+      <!-- single contact view -->
+      <div class="w-full py-4 px-8 md:py-14">
+        <p class="font-bold text-4xl">Arlene Wang</p>
+        <p class="text-l sm:text-2xl">arlene.wang@mail.utoronto.ca</p>
+
+        <form class="mt-6 bg-pale-green p-5 rounded-md">
+          <h2 class="text-2xl font-semibold pb-5">Invite to meet</h2>
+          <div class="mb-4 flex-column">
+            <label for="select-calendar">
+              <p class="font-medium text-xl">
+                Select a calendar...<span class="text-red-600">*</span>
+              </p>
+            </label>
+            <div class="relative rounded-md">
+              <select type="text" name="select-calendar" id="select-calendar"
+                class="block w-1/2 sm:w-1/4 rounded-lg border-0 py-1.5 pl-4 pr-4 ring-2 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-accent text-sm leading-6">
+                <option value="CSC309">CSC309</option>
+                <option value="SOC318">SOC318</option>
+                <option value="YAY000">YAY000</option>
+              </select>
+            </div>
+          </div>
+          <div class="flex-column ">
+            <h3 class="font-medium text-xl pb-2 sm:pb-3">Deadline to respond:</h3>
+            <div class="flex flex-col sm:flex-row">
+              <div class="mb-2 sm:mb-4 mr-5">
+                <label for="Date">
+                  <p class="font-medium">
+                    Date<span class="text-red-600">*</span>
+                  </p>
+                </label>
+                <div class="relative rounded-md shadow-sm">
+                  <input type="date" name="date" id="date"
+                    class="block w-30% rounded-lg border-0 py-1.5 pl-4ring-2 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-accent text-sm leading-6"
+                    placeholder="02-05=2024" />
+                </div>
+              </div>
+
+              <div class="mb-3 flex-row">
+                <label for="time">
+                  <p class="font-medium">Time</p>
+                </label>
+                <input type="text" name="hour" id="hour" maxlength="2"
+                  class="w-14 inline rounded-lg border-0 py-1.5 pl-4 ring-2 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-accent text-sm leading-6"
+                  placeholder="HH" />
+                <span class="bold">:</span>
+                <input type="text" name="minutes" id="minutes" maxlength="2"
+                  class="w-14 inline rounded-lg border-0 py-1.5 pl-4 ring-2 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-accent text-sm leading-6"
+                  placeholder="MM" />
+              </div>
+            </div>
+          </div>
+          <div class="h-10">
+            <button type="button" class="mt-2 bg-dark-green text-white p-2 rounded-lg w-52 sm:mt-0 md:float-right">
+              Send invite
+            </button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

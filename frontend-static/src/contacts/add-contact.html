@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../output.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contacts</title>
+  </head>
+  <body class="bg-shadow">
+    <div
+      class="flex h-full items-center min-h-[650px] sm:h-dvh justify-center p-2"
+    >
+      <!--  card -->
+      <div
+        class="flex flex-col md:flex-row w-full h-full md:max-h-[600px] lg:max-w-[1024px] bg-white rounded-lg drop-shadow-md"
+      >
+        <!-- contacts menu -->
+        <div
+          class="h-min md:h-full md:w-1/3 md:flex md:justify-center rounded-tl-lg rounded-tr-lg md:rounded-tr-none md:rounded-bl-lg bg-pale-green"
+        >
+          <div class="w-full">
+            <input placeholder="Search for a contact..." class="rounded-lg border-0 bg-gray-200 p-2 px-3 m-4">
+             
+          </input>
+            <!-- note alphabetized contacts -->
+            <div class="border-b-2 py-2 border-gray-500">
+              <p class="block font-medium text-xl px-4">Amiel Nurja</p>
+            </div>
+            <div class="border-b-2 py-2 border-gray-500">
+              <p class="block font-medium text-xl px-4">Arlene Wang</p>
+            </div>
+            <div class="border-b-2 py-2 border-gray-500">
+              <p class="block font-medium text-xl px-4">Brian Cho</p>
+            </div>
+            <div class="border-b-2 py-2 border-gray-500">
+              <p class="block font-medium text-xl px-4">Kirsten Sutantyo</p>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="w-full py-4 px-8 mb-6 md:py-10">
+
+        <a href="./contacts.html"><button
+            type="button"
+            class="rounded-lg text-xl mb-7"
+        >
+        &larr; Back
+        </button></a>
+
+          <p class="font-semibold text-3xl">Name<span class="text-red-600"> *</span></p>
+          <input type="text"
+          name="contact-name"
+          id="contact-name" 
+          class="w-1/2 rounded-lg border-0 py-1.5 mt-3 mb-4 ring-2 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-accent text-sm leading-6"/>
+          <p class="font-semibold text-3xl ">Email<span class="text-red-600"> *</span></p>
+          <input type="text"
+          name="contact-email"
+          id="contact-email" 
+          class="w-1/2 rounded-lg border-0 py-1.5 mt-3 mb-4 ring-2 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-accent text-sm leading-6"/>
+        <div class="h-10">
+            <button
+              type="button"
+              class="mt-2 bg-dark-green text-white p-2 rounded-lg w-52 sm:mt-0 "
+            >
+              Add contact
+            </button>
+        </div>
+
+        </div>
+
+      </div>
+    </div>
+  </body>
+</html>
