@@ -1,5 +1,15 @@
-# CSC309 Project 1on1
+# CSC309 Project - 1on1
 
+1on1 is a web application for a host to schedule meetings with several invitees. This repo is a copy of my team's final project submission for the Winter 2024 offering of CSC309 at the University of Toronto.
+
+Authors: Brian (Wonjun) Cho, Amiel Nurja, Kirsten Sutantyo, Arlene Wang
+
+My contributions:
+- Database schema design (calendars, events)
+- API development (CRUD operations, scheduling) along with tests
+- UI development (Home page, Navbar, Meeting Information)
+- Deployment to AWS
+  
 ## Setup
 
 This project uses React as the frontend and Django as the backend. 
